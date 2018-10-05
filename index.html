@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html
+    
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a creative project created for CS 260">
+    <meta name="author" content="Nathan Marrs">
+    
+    <title>Enhanced Weather</title>
+    
+    <!-- Include Bootstrap 4 -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    
+    <!-- Custom styles -->
+    <link href="css/index.css" rel="stylesheet">
+    
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/creative_projects/project1/">
+        <img src="static/images/weather.png" width="30" height="30" class="d-inline-block align-top" alt="Weather">
+       Enhanced Weather
+      </a>
+    </nav>
+</header>
+    
+<body>
+
+<section class="pt-3 pb-3 text-center rain">
+    <img src="static/images/weather.png" width="150" height="150" id="mainWeatherImage" class="d-inline-block align-top" alt="Weather">
+</section>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <button class="btn btn-info float-right ml-3" id="rainButton">Make it Rain!</button>
+  </div>
+  <div id="sunshineButton" class="container">
+    <button id="stopRainButton" class="btn btn-warning float-right ml-3">You Are My Sunshine :)</button>
+  </div>
+  <div class="container">
+    <button class="btn btn-danger float-right" id="clearButton">Clear All</button>
+  </div>
+  <br />
+  <div class="container">
+    <h1>Experience a city's weather</h1> 
+  </div>
+  <br />
+  <div class="container">
+    <div>
+        <div class="form-group row">
+          <div class="col-4">
+            <input class="form-control" type="search" placeHolder="Enter city here..." id="city-search-input" data-country="us">
+          </div>
+          <button type="submit" id="weatherSearchButton" class="ml-4 btn btn-primary">Search</button>
+        </div>
+        <div id="currentWeatherResults">
+            <div className="card shadow font-title mb-5 ml-5 mr-5 weather-card mx-auto">
+              <div className="card-body">
+                <h3 className="text-dark-blue card-title">Current Weather <img id="weatherImage" src="" className="img-fluid mb-3 shadow" alt="Weather" /></h3>
+                <table className="table table-hover">
+                  <tbody>
+                    <tr>
+                      <th><i class="far fa-compass"></i> Location</th>
+                      <td id="weatherLocation"></td>
+                    </tr>
+                    <tr>
+                      <th><i class="far fa-sun"></i> Weather</th>
+                      <td id="weather"></td>
+                    </tr>
+                    <tr>
+                      <th><i class="fas fa-thermometer-empty"></i> Low</th>
+                      <td id="low"></td>
+                    </tr>
+                    <tr>
+                      <th><i class="fas fa-thermometer-full"></i> High</th>
+                      <td id="high"></td>
+                    </tr>
+                    <tr>
+                      <th><i class="fas fa-tint"></i> Humidity</th>
+                      <td id="humidity"></td>
+                    </tr>
+                    <tr>
+                      <th><i class="fas fa-angle-double-right"></i> Wind</th>
+                      <td id="wind"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <br />
+</div>
+
+<!-- Bootstrap javascript -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Custom javascript -->
+<script src="js/index.js"></script>
+
+</body>
+</html>
