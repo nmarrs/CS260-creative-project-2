@@ -47,9 +47,21 @@ $(function() {
                 currentWeatherResults.show()
 
                 if (weather === "Rain") {
+                    stopRainButton.trigger("click")
                     rainButton.trigger("click")
                 }
                 else if (weather === "Clear") {
+                    stopRainButton.trigger("click")
+                }
+                else if (weather === "Clouds") {
+                    stopRainButton.trigger("click")
+                    cloudButton.trigger("click")
+                }
+                else if (weather === "Snow") {
+                    stopRainButton.trigger("click")
+                    snowButton.trigger("click")
+                }
+                else {
                     stopRainButton.trigger("click")
                 }
             }
@@ -68,8 +80,14 @@ $(function() {
 
     // Create rain effect
     var rainButton = $('#rainButton')
+    var cloudButton = $('#cloudButton')
+    var snowButton = $('#snowButton')
     var stopRainButton = $('#stopRainButton')
-    stopRainButton.prop('disabled', true)
+
+    // disable snow initially
+    setTimeout(function() {
+        stopRainButton.trigger("click");
+    }, 50)
 
     rainButton.click(function(e) {
         e.preventDefault()
@@ -79,10 +97,37 @@ $(function() {
         $('body').addClass('rain')
         createRain()
         rainButton.prop('disabled', true)
+        cloudButton.prop('disabled', true)
+        snowButton.prop('disabled', true)
+    })
+
+    cloudButton.click(function(e) {
+        e.preventDefault()
+        stopRainButton.prop('disabled', false)
+
+        $('.jumbotron').addClass('rain')
+        $('body').addClass('rain')
+        cloudButton.prop('disabled', true)
+    })
+
+    snowButton.click(function(e) {
+        e.preventDefault()
+        stopRainButton.prop('disabled', false)
+        snowStorm.autoStart = true
+
+        $('.jumbotron').addClass('rain')
+        $('body').addClass('rain')
+        snowStorm.resume()
+        snowButton.prop('disabled', true)
+        rainButton.prop('disabled', true)
+        cloudButton.prop('disabled', true)
     })
 
     stopRainButton.click(function(e) {
         e.preventDefault()
+        stopRainButton.prop('disabled', true)
+        clearClouds()
+        clearSnow()
         stopRain()
     })
 
@@ -106,12 +151,30 @@ $(function() {
         }
     }
 
+
     // Make it stop raining
     function stopRain() {
         rainButton.prop('disabled', false)
         $('.drop').remove()
         $('.jumbotron').removeClass('rain')
         $('body').removeClass('rain')
+        stopRainButton.prop('disabled', true)
+    }
+
+    // clear clouds
+    function clearClouds() {
+        cloudButton.prop('disabled', false)
+        $('.jumbotron').removeClass('rain')
+        $('body').removeClass('rain')
+        stopRainButton.prop('disabled', true)
+    }
+
+    // clear snow
+    function clearSnow() {
+        snowButton.prop('disabled', false)
+        $('.jumbotron').removeClass('rain')
+        $('body').removeClass('rain')
+        snowStorm.stop()
         stopRainButton.prop('disabled', true)
     }
 })

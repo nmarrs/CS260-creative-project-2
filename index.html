@@ -34,17 +34,29 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <button class="btn btn-info float-right ml-3" id="rainButton">Make it Rain!</button>
-  </div>
-  <div id="sunshineButton" class="container">
-    <button id="stopRainButton" class="btn btn-warning float-right ml-3">You Are My Sunshine :)</button>
+    <button class="btn btn-info float-right ml-3" id="snowButton"><i class="far fa-snowflake"></i> Snow?</button>
   </div>
   <div class="container">
-    <button class="btn btn-danger float-right" id="clearButton">Clear All</button>
+    <button class="btn btn-info float-right ml-3" id="rainButton"><i class="fas fa-umbrella"></i> Make it Rain!</button>
+  </div>
+  <div class="container">
+    <button class="btn btn-info float-right ml-3" id="cloudButton"><i class="fas fa-cloud"></i> Cloudy</button>
+  </div>
+  <div id="sunshineButton" class="container">
+    <button id="stopRainButton" class="btn btn-warning float-right ml-3"><i class="fas fa-sun"></i> You Are My Sunshine :)</button>
+  </div>
+  <div class="container">
+    <button class="btn btn-danger float-right" id="clearButton">Clear Form</button>
   </div>
   <br />
   <div class="container">
-    <h1>Experience a city's weather</h1> 
+    <h1>Experience a city's weather</h1>
+    <p>Get immersed in any US City's current weather! Currently supported immersive weather conditions: <ul>
+        <li>Clear - St. George</li>
+        <li>Cloudy - Marina</li>
+        <li>Rain - Portland?</li>
+        <li>Snow - Fessenden?</li>
+    </ul></p>
   </div>
   <br />
   <div class="container">
@@ -56,10 +68,10 @@
           <button type="submit" id="weatherSearchButton" class="ml-4 btn btn-primary">Search</button>
         </div>
         <div id="currentWeatherResults">
-            <div className="card shadow font-title mb-5 ml-5 mr-5 weather-card mx-auto">
-              <div className="card-body">
-                <h3 className="text-dark-blue card-title">Current Weather <img id="weatherImage" src="" className="img-fluid mb-3 shadow" alt="Weather" /></h3>
-                <table className="table table-hover">
+            <div class="card shadow font-title mb-5 ml-5 mr-5 weather-card mx-auto">
+              <div class="card-body">
+                <h3 class="card-title ">Current Weather <img id="weatherImage" src="" class="img-fluid mb-3" alt="Weather" /></h3>
+                <table class="table table-hover">
                   <tbody>
                     <tr>
                       <th><i class="far fa-compass"></i> Location</th>
@@ -100,6 +112,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- Custom javascript -->
+<script src="js/snowstorm.js"></script>
+<script>
+    // configure snow
+    snowStorm.flakesMaxActive = 858
+    snowStorm.useTwinkleEffect = true
+    snowStorm.animationInterval = 20
+</script>
 <script src="js/index.js"></script>
 
 </body>
